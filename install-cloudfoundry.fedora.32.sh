@@ -7,7 +7,7 @@ rm -rf ./build
 mkdir -p ./build/
 cd ./build/
 
-# Install the bosh-bootloader
+# Install bosh-bootloader
 ghi download-release -o cloudfoundry -r bosh-bootloader -f v8.4.0 -a -af linux
 mv ./bbl-v8.4.0_linux_x86-64 ./bbl
 chmod u+x ./bbl
@@ -29,7 +29,7 @@ ghi build-go -d ./2.7.0/cloudfoundry-incubator-credhub-cli-4ba6e6a/ -o $(pwd)/cr
 ghi install -b ./credhub
 echo "credhub installed successfully ... "
 
-# Install the cloudfoundry cli
+# Install cf
 ghi download-release -o cloudfoundry -r cli -f v6.51.0 -t
 ghi untar -t ./v6.51.0.tar -o ./v6.51.0
 ghi build-go -a get -d ./v6.51.0/cloudfoundry-cli-2acd156/ > /dev/null || true

@@ -36,6 +36,6 @@ ghi install -b ./vault
 # Install nomad
 ghi download-tag -o hashicorp -r nomad -f v0.11.2 -t
 ghi untar -t ./v0.11.2.tar -o ./v0.11.2
-ghi build-go -a get -d ./v0.11.2/hashicorp-nomad-d6b3c72/ || true
-ghi build-go -d ./v0.11.2/hashicorp-nomad-d6b3c72/ -o $(pwd)/nomad
+ghi build-go -a get -d ./v0.11.2/hashicorp-nomad-f230806/ || true
+ghi build-go -d ./v0.11.2/hashicorp-nomad-f230806/ -o $(pwd)/nomad
 ghi install -b ./nomad

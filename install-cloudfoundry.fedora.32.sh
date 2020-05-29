@@ -32,6 +32,8 @@ echo "credhub installed successfully ... "
 # Install cf
 ghi download-release -o cloudfoundry -r cli -f v6.51.0 -t
 ghi untar -t ./v6.51.0.tar -o ./v6.51.0
+sed -i 's/0.0.0-unknown-version/6.51.0+2acd15650.2020-04-07/g' ./v6.51.0/cloudfoundry-cli-2acd156/version/version.go
+sed -i 's/semver.Make(binaryVersion)/semver.MustParse(DefaultVersion)/g' ./v6.51.0/cloudfoundry-cli-2acd156/version/version.go
 ghi build-go -a get -d ./v6.51.0/cloudfoundry-cli-2acd156/ > /dev/null || true
 ghi build-go -d ./v6.51.0/cloudfoundry-cli-2acd156/ -o $(pwd)/cf
 ghi install -b ./cf

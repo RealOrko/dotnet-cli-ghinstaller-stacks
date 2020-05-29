@@ -36,3 +36,10 @@ ghi build-go -a get -d ./v6.51.0/cloudfoundry-cli-2acd156/ > /dev/null || true
 ghi build-go -d ./v6.51.0/cloudfoundry-cli-2acd156/ -o $(pwd)/cf
 ghi install -b ./cf
 echo "cf installed successfully ... "
+
+# Install bbr
+ghi download-release -o cloudfoundry-incubator -r bosh-backup-and-restore -f 1.7.2 -a -af linux
+mv ./bbr-1.7.2-linux-amd64 ./bbr
+chmod u+x ./bbr
+ghi install -b ./bbr
+echo "bbr installed successfully ... "
